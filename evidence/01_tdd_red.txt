@@ -1,0 +1,97 @@
+Command: python3 -m unittest discover -s tests -p test_tdd.py -v
+test_draw_updates_both_teams (test_tdd.TableUpdateTests.test_draw_updates_both_teams) ... FAIL
+test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) ... 
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', -1, 0)) ... FAIL
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', ' Сокол ', 2, 0)) ... FAIL
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('', 'Рубин', 2, 0)) ... FAIL
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', 1.5, 0)) ... FAIL
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', True, 0)) ... FAIL
+  test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол | А', 'Рубин', 2, 0)) ... FAIL
+test_second_match_accumulates_statistics (test_tdd.TableUpdateTests.test_second_match_accumulates_statistics) ... ERROR
+test_win_updates_both_teams (test_tdd.TableUpdateTests.test_win_updates_both_teams) ... ERROR
+
+======================================================================
+ERROR: test_second_match_accumulates_statistics (test_tdd.TableUpdateTests.test_second_match_accumulates_statistics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 31, in test_second_match_accumulates_statistics
+    row = next(row for row in self.tracker.table() if row.team == "Сокол")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+======================================================================
+ERROR: test_win_updates_both_teams (test_tdd.TableUpdateTests.test_win_updates_both_teams)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 13, in test_win_updates_both_teams
+    winner = rows["Сокол"]
+             ~~~~^^^^^^^^^
+KeyError: 'Сокол'
+
+======================================================================
+FAIL: test_draw_updates_both_teams (test_tdd.TableUpdateTests.test_draw_updates_both_teams)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 26, in test_draw_updates_both_teams
+    self.assertEqual(len(self.tracker.table()), 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', -1, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', ' Сокол ', 2, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('', 'Рубин', 2, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', 1.5, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол', 'Рубин', True, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) (args=('Сокол | А', 'Рубин', 2, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_tdd.py", line 48, in test_invalid_result_keeps_table
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=7, errors=2)
+Exit code: 1

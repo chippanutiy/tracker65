@@ -1,0 +1,35 @@
+Command: python3 -m unittest discover -s tests -p test_atdd.py -v
+test_bad_score_reports_error_and_keeps_table (test_atdd.AcceptanceTests.test_bad_score_reports_error_and_keeps_table) ... FAIL
+test_empty_views_have_a_message (test_atdd.AcceptanceTests.test_empty_views_have_a_message) ... FAIL
+test_table_is_current_after_each_match (test_atdd.AcceptanceTests.test_table_is_current_after_each_match) ... ERROR
+
+======================================================================
+ERROR: test_table_is_current_after_each_match (test_atdd.AcceptanceTests.test_table_is_current_after_each_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_atdd.py", line 26, in test_table_is_current_after_each_match
+    first, second = output.split("Команда | И | В | Н | П | ЗМ | ПМ | РМ | О\n")[1:]
+    ^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 0)
+
+======================================================================
+FAIL: test_bad_score_reports_error_and_keeps_table (test_atdd.AcceptanceTests.test_bad_score_reports_error_and_keeps_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_atdd.py", line 40, in test_bad_score_reports_error_and_keeps_table
+    self.assertEqual(output.count("Результат добавлен."), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_empty_views_have_a_message (test_atdd.AcceptanceTests.test_empty_views_have_a_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_atdd.py", line 47, in test_empty_views_have_a_message
+    self.assertEqual(output.count("Результатов пока нет."), 2)
+AssertionError: 0 != 2
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.194s
+
+FAILED (failures=2, errors=1)
+Exit code: 1

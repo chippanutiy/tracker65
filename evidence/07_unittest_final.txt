@@ -1,0 +1,15 @@
+Command: python3 -m unittest discover -s tests -v
+test_bad_score_reports_error_and_keeps_table (test_atdd.AcceptanceTests.test_bad_score_reports_error_and_keeps_table) ... ok
+test_empty_views_have_a_message (test_atdd.AcceptanceTests.test_empty_views_have_a_message) ... ok
+test_table_is_current_after_each_match (test_atdd.AcceptanceTests.test_table_is_current_after_each_match) ... ok
+test_rating_from_specification (test_sdd.RatingExamplesTests.test_rating_from_specification) ... ok
+test_draw_updates_both_teams (test_tdd.TableUpdateTests.test_draw_updates_both_teams) ... ok
+test_invalid_result_keeps_table (test_tdd.TableUpdateTests.test_invalid_result_keeps_table) ... ok
+test_second_match_accumulates_statistics (test_tdd.TableUpdateTests.test_second_match_accumulates_statistics) ... ok
+test_win_updates_both_teams (test_tdd.TableUpdateTests.test_win_updates_both_teams) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.516s
+
+OK
+Exit code: 0
